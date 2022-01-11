@@ -1,3 +1,4 @@
+import com.sun.source.tree.AssertTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -52,6 +53,18 @@ public class TDDGameOfLifeTest {
         }
 
 
+    }
+
+    @Test
+    void initializeStartingPoint(){
+        // Arrange
+        this.tddgameoflife.initializeBoard(4,8);
+        int x = 4;
+        int y = 4;
+        // Act
+        this.tddgameoflife.initializeStartingPoint(y, x);
+        // Assert
+        Assertions.assertEquals("*", this.tddgameoflife.getBoard()[y][x]);
     }
 
 }
