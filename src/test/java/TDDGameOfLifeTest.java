@@ -2,6 +2,10 @@ import com.sun.source.tree.AssertTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import javax.swing.text.Position;
+import java.util.ArrayList;
+import java.util.List;
+
 public class TDDGameOfLifeTest {
 
     private final TDDGameOfLife tddgameoflife;
@@ -65,6 +69,26 @@ public class TDDGameOfLifeTest {
         this.tddgameoflife.initializeStartingPoint(y, x);
         // Assert
         Assertions.assertEquals("*", this.tddgameoflife.getBoard()[y][x]); // Skapa en funktion som hämtar ut * och som kan validera positionen
+    }
+
+    @Test
+    void findAllNeighbors(){
+        // Arrange
+        this.tddgameoflife.initializeBoard(5, 8);
+        this.tddgameoflife.initializeStartingPoint(3,3);
+        ArrayList<CellPosition> expectedNeighborList = new ArrayList<CellPosition>();
+        expectedNeighborList.add(new CellPosition(2,2));
+        expectedNeighborList.add(new CellPosition(2,3));
+        expectedNeighborList.add(new CellPosition(2,4));
+        expectedNeighborList.add(new CellPosition(3,2));
+        expectedNeighborList.add(new CellPosition(3,4));
+        expectedNeighborList.add(new CellPosition(4,2));
+        expectedNeighborList.add(new CellPosition(4,3));
+        expectedNeighborList.add(new CellPosition(4,4));
+        // Act
+        ArrayList<CellPosition> actualNeighborList = this.tddgameoflife.findAllNeighbors(3,3);
+        // Assert
+        Assertions.assertEquals(expectedNeighborList, actualNeighborList);
     }
 
 }
