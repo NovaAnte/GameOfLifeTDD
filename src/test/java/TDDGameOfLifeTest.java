@@ -15,8 +15,8 @@ public class TDDGameOfLifeTest {
         int x = 8;
         int y = 4;
         // Act
-        tddgameoflife.initializeGrid(y, x);
-        String board [] [] = tddgameoflife.getBoard();
+        this.tddgameoflife.initializeBoard(y, x);
+        String board [] [] = this.tddgameoflife.getBoard();
         // Assert
         Assertions.assertEquals(4, board.length);
         Assertions.assertEquals(8, board[0].length);
@@ -25,11 +25,12 @@ public class TDDGameOfLifeTest {
     @Test
     void displayBoard(){
         // Arrange
+        this.tddgameoflife.initializeBoard(4, 8);
         this.tddgameoflife.setHasDisplayed(false);
         // Act
         this.tddgameoflife.displayBoard();
         // Assert
-        Assertions.assertEquals(true, this.tddgameoflife.getHasDisplayed());
+        Assertions.assertEquals(true, this.tddgameoflife.isHasDisplayed());
     }
 
     // Kontrollera att griden är 8 enheter bred och 4 enheter lång.
