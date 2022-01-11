@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class TDDGameOfLife {
 
 
@@ -51,6 +54,19 @@ public class TDDGameOfLife {
         this.board[y][x] = "*";
     }
 
+    public int decideIfCellLivesOrDies(int x, int y){
+     //pos1 = new CellPosition(x-1, y-1);
+     //pos2 = new CellPosition(x, y-1);
+     //pos3 = new CellPosition(x+1, y-1);
+     //pos4 = new CellPosition(x-1, y);
+     //pos5 = new CellPosition(x+1, y);
+     //pos6 = new CellPosition(x-1, y+1);
+     //pos7 = new CellPosition(x, y+1);
+     //pos8 = new CellPosition(x+1, y+1);
+
+        return 0;
+    }
+
     public String[][] getBoard() {
         return this.board;
     }
@@ -62,5 +78,7 @@ public class TDDGameOfLife {
     public void setHasDisplayed(boolean hasDisplayed) {
         this.hasDisplayed = hasDisplayed;
     }
+
+
 
 }

@@ -4,7 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.text.Position;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TDDGameOfLifeTest {
 
@@ -72,23 +76,14 @@ public class TDDGameOfLifeTest {
     }
 
     @Test
-    void findAllNeighbors(){
+    void decideIfCellLivesOrDies(){
         // Arrange
         this.tddgameoflife.initializeBoard(5, 8);
         this.tddgameoflife.initializeStartingPoint(3,3);
-        ArrayList<CellPosition> expectedNeighborList = new ArrayList<CellPosition>();
-        expectedNeighborList.add(new CellPosition(2,2));
-        expectedNeighborList.add(new CellPosition(2,3));
-        expectedNeighborList.add(new CellPosition(2,4));
-        expectedNeighborList.add(new CellPosition(3,2));
-        expectedNeighborList.add(new CellPosition(3,4));
-        expectedNeighborList.add(new CellPosition(4,2));
-        expectedNeighborList.add(new CellPosition(4,3));
-        expectedNeighborList.add(new CellPosition(4,4));
         // Act
-        ArrayList<CellPosition> actualNeighborList = this.tddgameoflife.findAllNeighbors(3,3);
+        int result = this.tddgameoflife.decideIfCellLivesOrDies(3,3);
         // Assert
-        Assertions.assertEquals(expectedNeighborList, actualNeighborList);
+        assertEquals(1, result);
     }
 
 }
