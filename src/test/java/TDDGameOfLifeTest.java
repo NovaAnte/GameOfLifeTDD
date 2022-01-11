@@ -35,4 +35,23 @@ public class TDDGameOfLifeTest {
 
     // Kontrollera att griden är 8 enheter bred och 4 enheter lång.
 
+    @Test
+    void populateBoard(){
+        // Arrange
+        this.tddgameoflife.initializeBoard(4, 8);
+        // Act
+        this.tddgameoflife.populateBoard();
+        // Assert
+        for (String[] x : this.tddgameoflife.getBoard())
+        {
+            for (String y : x)
+            {
+                Assertions.assertEquals(".", y);
+            }
+
+        }
+
+
+    }
+
 }
