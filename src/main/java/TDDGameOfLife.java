@@ -22,6 +22,16 @@ public class TDDGameOfLife {
         this.hasDisplayed = true;
     }
 
+    public void populateBoard(){
+        for (String[] x : this.board)
+        {
+            for(int i = 0; i < x.length; i++){
+                x[i] = ".";
+            }
+
+        }
+    }
+
     public String[][] getBoard() {
         return this.board;
     }
