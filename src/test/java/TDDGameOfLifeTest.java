@@ -21,6 +21,16 @@ public class TDDGameOfLifeTest {
         Assertions.assertEquals(8, spelplan[0].length);
     }
 
+    @Test
+    void displayBoard(){
+        // Arrange
+        this.tddgameoflife.setHasDisplayed(false);
+        // Act
+        this.tddgameoflife.displayBoard();
+        // Assert
+        Assertions.assertEquals(true, this.tddgameoflife.getHasDisplayed());
+    }
+
     // Kontrollera att griden är 8 enheter bred och 4 enheter lång.
 
 }
