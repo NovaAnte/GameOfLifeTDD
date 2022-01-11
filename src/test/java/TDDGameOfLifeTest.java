@@ -15,10 +15,11 @@ public class TDDGameOfLifeTest {
         int x = 8;
         int y = 4;
         // Act
-        String spelplan [] [] = tddgameoflife.initializeGrid(y, x);
+        tddgameoflife.initializeGrid(y, x);
+        String board [] [] = tddgameoflife.getBoard();
         // Assert
-        Assertions.assertEquals(4, spelplan.length);
-        Assertions.assertEquals(8, spelplan[0].length);
+        Assertions.assertEquals(4, board.length);
+        Assertions.assertEquals(8, board[0].length);
     }
 
     @Test

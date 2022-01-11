@@ -1,11 +1,18 @@
 public class TDDGameOfLife {
 
-    public static void main(String[] args) {
+    private boolean hasDisplayed = false;
+
+    private String board[][];
+
+    public void initializeGrid(int y, int x){
+        board = new String [y][x];
+    }
+
+    public void displayBoard(){
 
     }
 
-    public String [][] initializeGrid(int y, int x){
-        String board[][] = new String [y][x];
+    public String[][] getBoard() {
         return board;
     }
 
