@@ -1,4 +1,5 @@
-import java.lang.reflect.Array;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+
 import java.util.ArrayList;
 
 public class TDDGameOfLife {
@@ -55,15 +56,60 @@ public class TDDGameOfLife {
     }
 
     public int decideIfCellLivesOrDies(int x, int y){
-     //pos1 = new CellPosition(x-1, y-1);
-     //pos2 = new CellPosition(x, y-1);
-     //pos3 = new CellPosition(x+1, y-1);
-     //pos4 = new CellPosition(x-1, y);
-     //pos5 = new CellPosition(x+1, y);
-     //pos6 = new CellPosition(x-1, y+1);
-     //pos7 = new CellPosition(x, y+1);
-     //pos8 = new CellPosition(x+1, y+1);
+        ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y-1);
+        ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y-1);
+        ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y-1);
+        ImmutablePair<Integer, Integer> pos4 = new ImmutablePair<>(x-1, y);
+        ImmutablePair<Integer, Integer> pos5 = new ImmutablePair<>(x+1, y);
+        ImmutablePair<Integer, Integer> pos6 = new ImmutablePair<>(x-1, y+1);
+        ImmutablePair<Integer, Integer> pos7 = new ImmutablePair<>(x, y+1);
+        ImmutablePair<Integer, Integer> pos8 = new ImmutablePair<>(x+1, y+1);
 
+        ArrayList<ImmutablePair<Integer, Integer>> list = new ArrayList<>();
+        list.add(pos1);
+        list.add(pos2);
+        list.add(pos3);
+        list.add(pos4);
+        list.add(pos5);
+        list.add(pos6);
+        list.add(pos7);
+        list.add(pos8);
+        int counter = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            String type = board[list.get(i).getLeft()][list.get(i).getRight()];
+            if (type == "*"){
+                counter++;
+            }
+        }
+
+        String coordinateType = this.board[y][x];
+
+        if (coordinateType == "*"){
+            if (counter < 2){
+                return 1;
+            } else if (counter > 3){
+                return 2;
+            } else {
+                return 3;
+            }
+        }
+
+        if (coordinateType == "."){
+            if (counter == 3){
+                return 4;
+            }
+        }
+
+
+
+        // Vi ska hämta ut alla grannar
+        // Identifiera vad punkten och grannarna är för typ
+        // Beräkna hur många av de typerna som är levande celler
+        // Om grannarna är färre än 2, så kommer vi returnera 1
+        // Om grannarna är fler än 3, returnerna 2
+        // Om grannarna är två eller tre, returnera 3
+        // Om cellen är död, och grannarna är 3, returnera 4
         return 0;
     }
 

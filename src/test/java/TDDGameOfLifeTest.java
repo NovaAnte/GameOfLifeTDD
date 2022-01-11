@@ -76,7 +76,7 @@ public class TDDGameOfLifeTest {
     }
 
     @Test
-    void decideIfCellLivesOrDies(){
+    void decideIfCellLivesOrDies_WhenNoNeighbors_ReturnOne(){
         // Arrange
         this.tddgameoflife.initializeBoard(5, 8);
         this.tddgameoflife.initializeStartingPoint(3,3);
