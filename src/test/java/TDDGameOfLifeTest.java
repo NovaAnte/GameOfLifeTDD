@@ -98,4 +98,18 @@ public class TDDGameOfLifeTest {
         assertEquals(1, result);
     }
 
+    @Test
+    void decideIfCellLivesOrDies_WhenMoreThanThreeNeighbors_ReturnThree(){
+        // Arrange
+        this.tddgameoflife.initializeBoard(5, 8);
+        this.tddgameoflife.initializeStartingPoint(3,3);
+        this.tddgameoflife.initializeStartingPoint(3,2);
+        this.tddgameoflife.initializeStartingPoint(3,4);
+        this.tddgameoflife.initializeStartingPoint(2,3);
+        // Act
+        int result = this.tddgameoflife.decideIfCellLivesOrDies(3,3);
+        // Assert
+        Assertions.assertEquals(3, result);
+    }
+
 }
