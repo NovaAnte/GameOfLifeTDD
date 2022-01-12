@@ -215,6 +215,7 @@ public class TDDGameOfLifeTest {
             "0,3, 0,2, 0,4, 1,2, 1,3, 1,4, 2",
             "2,7, 1,7, 3,7, 3,6, 2,6, 1,6, 2",
             "4,4, 4,5, 3,5, 3,4, 3,3, 4,3, 2",
+            "2,0, 1,0, 1,1, 2,1, 3,1, 3,0, 2"
     })
     void decideIfCellLivesOrDies_WhenAliveCellIsEdgeCaseWithFiveNeighbors_ReturnTwo(int y1, int x1, int y2, int x2, int y3, int x3, int y4, int x4, int y5, int x5, int y6, int x6, int expectedValue){
         // Arrange
