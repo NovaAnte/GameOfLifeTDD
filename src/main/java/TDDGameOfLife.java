@@ -85,6 +85,7 @@ public class TDDGameOfLife {
 
         String coordinateType = this.board[y][x];
 
+
         if (coordinateType == "*"){
             if (counter < 2){
                 return 1;
