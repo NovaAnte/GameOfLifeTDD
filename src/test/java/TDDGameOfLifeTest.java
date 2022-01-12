@@ -350,7 +350,7 @@ public class TDDGameOfLifeTest {
     }
 
     @Test
-    void decideIfCellLivesOrDies_WhenAliveCellIsTopEdgeCaseWithFiveNeighbors_ReturnThree(){
+    void decideIfCellLivesOrDies_WhenAliveCellIsTopEdgeCaseWithFiveNeighbors_ReturnTwo(){
         // Arrange
         this.tddgameoflife.initializeBoard(5, 8);
         this.tddgameoflife.populateBoard();
