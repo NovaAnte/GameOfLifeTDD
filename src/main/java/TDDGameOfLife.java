@@ -55,7 +55,7 @@ public class TDDGameOfLife {
 
     public int decideIfCellLivesOrDies(int x, int y){
         ArrayList<ImmutablePair<Integer, Integer>> list = new ArrayList<>();
-        if (x == 0 && y == 0){
+        if (x == 0 && y == 0){ // Top left corner
             ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x+1, y);
             ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x+1, y+1);
             ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x, y+1);
@@ -64,7 +64,7 @@ public class TDDGameOfLife {
             list.add(pos3);
         }
 
-        if (x == this.boardLength -1 && y == 0){
+        if (x == this.boardLength -1 && y == 0){ // Top right corner
             ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y);
             ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y+1);
             ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x-1, y+1);
@@ -73,7 +73,7 @@ public class TDDGameOfLife {
             list.add(pos3);
         }
 
-        if (x == 0 && y == this.boardHeight -1){
+        if (x == 0 && y == this.boardHeight -1){ // Bottom left corner
             ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x, y-1);
             ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x+1, y-1);
             ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y);
@@ -82,7 +82,7 @@ public class TDDGameOfLife {
             list.add(pos3);
         }
 
-        if (x == this.boardLength -1 && y == this.boardHeight -1){
+        if (x == this.boardLength -1 && y == this.boardHeight -1){ // Bottom right corner
             ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x, y-1);
             ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x-1, y);
             ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x-1, y-1);
@@ -91,7 +91,7 @@ public class TDDGameOfLife {
             list.add(pos3);
         }
 
-        if (x > 0 && x < this.boardLength -1 && y == 0){
+        if (x > 0 && x < this.boardLength -1 && y == 0){ // Top edge
             ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y);
             ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x+1, y);
             ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x-1, y+1);
@@ -104,7 +104,7 @@ public class TDDGameOfLife {
             list.add(pos5);
         }
 
-        if (x == this.boardLength -1 && y > 0 && y < this.boardHeight -1){
+        if (x == this.boardLength -1 && y > 0 && y < this.boardHeight -1){ // Right edge
             ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x, y-1);
             ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y+1);
             ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x-1, y+1);
