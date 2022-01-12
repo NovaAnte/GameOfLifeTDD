@@ -56,24 +56,33 @@ public class TDDGameOfLife {
     }
 
     public int decideIfCellLivesOrDies(int x, int y){
-        ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y-1);
-        ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y-1);
-        ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y-1);
-        ImmutablePair<Integer, Integer> pos4 = new ImmutablePair<>(x-1, y);
-        ImmutablePair<Integer, Integer> pos5 = new ImmutablePair<>(x+1, y);
-        ImmutablePair<Integer, Integer> pos6 = new ImmutablePair<>(x-1, y+1);
-        ImmutablePair<Integer, Integer> pos7 = new ImmutablePair<>(x, y+1);
-        ImmutablePair<Integer, Integer> pos8 = new ImmutablePair<>(x+1, y+1);
-
         ArrayList<ImmutablePair<Integer, Integer>> list = new ArrayList<>();
-        list.add(pos1);
-        list.add(pos2);
-        list.add(pos3);
-        list.add(pos4);
-        list.add(pos5);
-        list.add(pos6);
-        list.add(pos7);
-        list.add(pos8);
+        if (x == 0 && y == 0){
+            ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x+1, y);
+            ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x+1, y+1);
+            ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x, y+1);
+            list.add(pos1);
+            list.add(pos2);
+            list.add(pos3);
+        }
+        //ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y-1);
+        //ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y-1);
+        //ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y-1);
+        //ImmutablePair<Integer, Integer> pos4 = new ImmutablePair<>(x-1, y);
+        //ImmutablePair<Integer, Integer> pos5 = new ImmutablePair<>(x+1, y);
+        //ImmutablePair<Integer, Integer> pos6 = new ImmutablePair<>(x-1, y+1);
+        //ImmutablePair<Integer, Integer> pos7 = new ImmutablePair<>(x, y+1);
+        //ImmutablePair<Integer, Integer> pos8 = new ImmutablePair<>(x+1, y+1);
+//
+//
+        //list.add(pos1);
+        //list.add(pos2);
+        //list.add(pos3);
+        //list.add(pos4);
+        //list.add(pos5);
+        //list.add(pos6);
+        //list.add(pos7);
+        //list.add(pos8);
         int counter = 0;
 
         for (int i = 0; i < list.size(); i++) {

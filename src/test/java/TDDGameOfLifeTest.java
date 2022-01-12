@@ -126,7 +126,8 @@ public class TDDGameOfLifeTest {
         Assertions.assertEquals(4, result);
     }
 
-    void decideIfCellLivesOrDies_WhenCellIsCornerCaseWithThreeNeighbors_ReturnFive(){
+    @Test
+    void decideIfCellLivesOrDies_WhenCellIsTopLeftCornerWithThreeNeighbors_ReturnThree(){
         // Arrange
         this.tddgameoflife.initializeBoard(5,8);
         this.tddgameoflife.populateBoard();
@@ -137,7 +138,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(0,0);
         // Assert
-        Assertions.assertEquals(5, result);
+        Assertions.assertEquals(3, result);
     }
 
 }
