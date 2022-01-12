@@ -210,4 +210,16 @@ public class TDDGameOfLifeTest {
         // Assert
         assertEquals(3, result);
     }
+
+    @Test
+    void decideIfCellLivesOrDies_WhenAliveCellIsTopRightCornerWithOneNeighbor_ReturnOne(){
+        // Arrange
+        this.tddgameoflife.initializeBoard(5,8);
+        this.tddgameoflife.populateBoard();
+        this.tddgameoflife.initializeStartingPoint(0, 7);
+        // Act
+        int result = this.tddgameoflife.decideIfCellLivesOrDies(7,0);
+        // Assert
+        assertEquals(1, result);
+    }
 }
