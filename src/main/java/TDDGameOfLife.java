@@ -4,8 +4,6 @@ import java.util.ArrayList;
 
 public class TDDGameOfLife {
 
-
-
     private boolean hasDisplayed = false;
 
     private String board[][];
@@ -65,6 +63,16 @@ public class TDDGameOfLife {
             list.add(pos2);
             list.add(pos3);
         }
+
+        if (x == this.boardLength -1 && y == 0){
+            ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y);
+            ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y+1);
+            ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x-1, y+1);
+            list.add(pos1);
+            list.add(pos2);
+            list.add(pos3);
+        }
+
         //ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y-1);
         //ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y-1);
         //ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y-1);
@@ -86,8 +94,8 @@ public class TDDGameOfLife {
         int counter = 0;
 
         for (int i = 0; i < list.size(); i++) {
-            String type = board[list.get(i).getLeft()][list.get(i).getRight()];
-            if (type == "*"){
+            String type = board[list.get(i).getRight()][list.get(i).getLeft()];
+            if (type.equals("*")){
                 counter++;
             }
         }
@@ -95,7 +103,7 @@ public class TDDGameOfLife {
         String coordinateType = this.board[y][x];
 
 
-        if (coordinateType == "*"){
+        if (coordinateType.equals("*")){
             if (counter < 2){
                 return 1;
             } else if (counter > 3){
@@ -105,7 +113,7 @@ public class TDDGameOfLife {
             }
         }
 
-        if (coordinateType == "."){
+        if (coordinateType.equals(".")){
             if (counter == 3){
                 return 4;
             }
@@ -134,7 +142,5 @@ public class TDDGameOfLife {
     public void setHasDisplayed(boolean hasDisplayed) {
         this.hasDisplayed = hasDisplayed;
     }
-
-
 
 }
