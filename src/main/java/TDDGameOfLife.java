@@ -130,6 +130,21 @@ public class TDDGameOfLife {
             list.add(pos5);
         }
 
+        if (x == 0 && y > 0 && y < this.boardHeight -1){
+            ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x, y-1);
+            ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x+1, y-1);
+            ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y);
+            ImmutablePair<Integer, Integer> pos4 = new ImmutablePair<>(x+1, y+1);
+            ImmutablePair<Integer, Integer> pos5 = new ImmutablePair<>(x, y+1);
+            list.add(pos1);
+            list.add(pos2);
+            list.add(pos3);
+            list.add(pos4);
+            list.add(pos5);
+        }
+
+
+
         //ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y-1);
         //ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y-1);
         //ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y-1);
