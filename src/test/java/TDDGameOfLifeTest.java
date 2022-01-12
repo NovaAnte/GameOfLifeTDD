@@ -303,7 +303,7 @@ public class TDDGameOfLifeTest {
         this.tddgameoflife.initializeStartingPoint(4,6);
         this.tddgameoflife.initializeStartingPoint(3,6);
         // Act
-        int result = tddgameoflife.decideIfCellLivesOrDies(4,7);
+        int result = tddgameoflife.decideIfCellLivesOrDies(7,4);
         // Assert
         assertEquals(3, result);
     }
