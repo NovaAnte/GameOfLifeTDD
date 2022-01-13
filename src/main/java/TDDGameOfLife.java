@@ -6,6 +6,7 @@ public class TDDGameOfLife {
 
     private boolean hasDisplayed = false;
 
+    private ArrayList<String> liveOrDieList = new ArrayList<>();
     private String board[][];
     private int boardLength;
     private int boardHeight;
@@ -191,6 +192,29 @@ public class TDDGameOfLife {
         return 0;
     }
 
+    public void killOrSpawnCell(int y, int x){
+        int condition = decideIfCellLivesOrDies(x, y);
+
+        switch (condition){
+            case 1:
+            case 2:
+                liveOrDieList.add(y + ";" + x + ";" + ".");
+                break;
+            case 3:
+                break;
+            case 4:
+                liveOrDieList.add(y + ";" + x + ";" + "*");
+                break;
+        }
+
+    }
+
+
+
+
+    // spara alla koordinater i en lista
+    // gå igenom listan
+
     public String[][] getBoard() {
         return this.board;
     }
@@ -201,6 +225,15 @@ public class TDDGameOfLife {
 
     public void setHasDisplayed(boolean hasDisplayed) {
         this.hasDisplayed = hasDisplayed;
+    }
+
+
+    public ArrayList<String> getLiveOrDieList() {
+        return liveOrDieList;
+    }
+
+    public void setLiveOrDieList(ArrayList<String> liveOrDieList) {
+        this.liveOrDieList = liveOrDieList;
     }
 
 }

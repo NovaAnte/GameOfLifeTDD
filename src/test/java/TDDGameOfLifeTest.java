@@ -316,20 +316,21 @@ public class TDDGameOfLifeTest {
 
     @ParameterizedTest
     @CsvSource({
-            "0,3, 0,2, .",
-            "2,7, 1,7, .",
-            "4,3, 4,4, .",
-            "2,0, 2,1, ."
+            "0,3, 0,2, 0;3;., 0;2;.",
+            "2,7, 1,7, 2;7;., 1;7;.",
+            "4,3, 4,4, 4;3;., 4;4;.",
+            "2,0, 2,1, 2;0;., 2;1;."
     })
-    void killOrSpawnCell_WhenReceiveConditionOne_KillCell(int y1, int x1, int y2, int x2, String expectedValue){
+    void killOrSpawnCell_WhenReceiveConditionOne_KillCell(int y1, int x1, int y2, int x2, String expectedValue, String expectedValue2){
         // Arrange
         this.tddgameoflife.initializeStartingPoint(y1, x1);
         this.tddgameoflife.initializeStartingPoint(y2, x2);
         // Act
-        this.tddgameoflife.killOrSpawnCell();
+        this.tddgameoflife.killOrSpawnCell(y1, x1);
+        this.tddgameoflife.killOrSpawnCell(y2, x2);
         // Assert
-        assertEquals(expectedValue, this.tddgameoflife.getBoard()[y1][x1]);
-        assertEquals(expectedValue, this.tddgameoflife.getBoard()[y2][x2]);
+        assertEquals(expectedValue, this.tddgameoflife.getLiveOrDieList().get(0));
+        assertEquals(expectedValue2, this.tddgameoflife.getLiveOrDieList().get(1));
     }
 
     // Kallar på decideifcelllivesordies
