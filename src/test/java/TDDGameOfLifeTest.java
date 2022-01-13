@@ -315,31 +315,24 @@ public class TDDGameOfLifeTest {
         assertEquals(expectedValue, result);
     }
 
-    @Test
-    void decideIfCellLivesOrDies_WhenAliveCellIsRightEdgeCaseWithOneNeighbor_ReturnOne(){
+    @ParameterizedTest
+    @CsvSource({
+            "0,3, 0,2, 0,4, 1,2, 4",
+            "2,7, 3,7, 1,7, 2,6, 4",
+            "4,3, 4,4, 4,2, 3,3, 4",
+            "2,0, 1,0, 3,0, 2,1, 4"
+    })
+    void decideIfCellLivesOrDies_WhenDeadCellIsEdgeCaseWithThreeNeighbors_ReturnFour(int y1, int x1, int y2, int x2, int y3, int x3, int y4, int x4, int expectedValue){
         // Arrange
         this.tddgameoflife.initializeBoard(5, 8);
         this.tddgameoflife.populateBoard();
-        this.tddgameoflife.initializeStartingPoint(2,7);
-        this.tddgameoflife.initializeStartingPoint(1,7);
+        this.tddgameoflife.initializeStartingPoint(y2, x2);
+        this.tddgameoflife.initializeStartingPoint(y3, x3);
+        this.tddgameoflife.initializeStartingPoint(y4, x4);
         // Act
-        int result = this.tddgameoflife.decideIfCellLivesOrDies(7,2);
+        int result = this.tddgameoflife.decideIfCellLivesOrDies(x1, y1);
         // Assert
-        assertEquals(1, result);
-    }
-
-    @Test
-    void decideIfCellLivesOrDies_WhenDeadCellIsRightEdgeCaseWithThreeNeighbors_ReturnFour(){
-        // Arrange
-        this.tddgameoflife.initializeBoard(5, 8);
-        this.tddgameoflife.populateBoard();
-        this.tddgameoflife.initializeStartingPoint(1,7);
-        this.tddgameoflife.initializeStartingPoint(3,7);
-        this.tddgameoflife.initializeStartingPoint(3,6);
-        // Act
-        int result = this.tddgameoflife.decideIfCellLivesOrDies(7,2);
-        // Assert
-        assertEquals(4, result);
+        assertEquals(expectedValue, result);
     }
 
 }
