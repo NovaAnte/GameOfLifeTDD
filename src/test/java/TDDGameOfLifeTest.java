@@ -296,17 +296,23 @@ public class TDDGameOfLifeTest {
         assertEquals(expectedValue, result);
     }
 
-    @Test
-    void decideIfCellLivesOrDies_WhenAliveCellIsTopEdgeCaseWithOneNeighbor_ReturnOne(){
+    @ParameterizedTest
+    @CsvSource({
+            "0,3, 0,2, 1",
+            "2,7, 1,7, 1",
+            "4,3, 4,4, 1",
+            "2,0, 2,1, 1"
+    })
+    void decideIfCellLivesOrDies_WhenAliveCellIsEdgeCaseWithOneNeighbor_ReturnOne(int y1, int x1, int y2, int x2, int expectedValue){
         // Arrange
         this.tddgameoflife.initializeBoard(5, 8);
         this.tddgameoflife.populateBoard();
-        this.tddgameoflife.initializeStartingPoint(0,3);
-        this.tddgameoflife.initializeStartingPoint(0,2);
+        this.tddgameoflife.initializeStartingPoint(y1, x1);
+        this.tddgameoflife.initializeStartingPoint(y2, x2);
         // Act
-        int result = this.tddgameoflife.decideIfCellLivesOrDies(3,0);
+        int result = this.tddgameoflife.decideIfCellLivesOrDies(x1, y1);
         // Assert
-        assertEquals(1, result);
+        assertEquals(expectedValue, result);
     }
 
     @Test
