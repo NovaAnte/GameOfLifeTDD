@@ -355,4 +355,22 @@ public class TDDGameOfLifeTest {
         // Assert
         assertEquals(expectedValue, this.tddgameoflife.getLiveOrDieList().get(0));
     }
+
+    @ParameterizedTest
+    @CsvSource({
+            "0,3, 0,2, 0,4, 0;3;*",
+            "2,7, 1,7, 3,7, 2;7;*",
+            "4,4, 4,3, 4,5, 4;4;*",
+            "2,0, 3,0, 1,0, 2;0;*"
+    })
+    void killOrSpawnCell_WhenReceiveConditionThree_KeepCellALive(int y1, int x1, int y2, int x2, int y3, int x3, String expectedValue){
+        // Arrange
+        this.tddgameoflife.initializeStartingPoint(y1, x1);
+        this.tddgameoflife.initializeStartingPoint(y2, x2);
+        this.tddgameoflife.initializeStartingPoint(y3, x3);
+        // Act
+        this.tddgameoflife.killOrSpawnCell(y1,x1);
+        // Arrange
+        assertEquals(expectedValue, this.tddgameoflife.getLiveOrDieList().get(0));
+    }
 }

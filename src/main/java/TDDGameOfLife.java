@@ -201,7 +201,6 @@ public class TDDGameOfLife {
                 liveOrDieList.add(y + ";" + x + ";" + ".");
                 break;
             case 3:
-                break;
             case 4:
                 liveOrDieList.add(y + ";" + x + ";" + "*");
                 break;
