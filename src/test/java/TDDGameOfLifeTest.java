@@ -314,4 +314,9 @@ public class TDDGameOfLifeTest {
         assertEquals(expectedValue, result);
     }
 
+    @Test
+    void killOrSpawnCell_WhenRecieveArgumentOne_KillCell(){
+
+    }
+
 }
