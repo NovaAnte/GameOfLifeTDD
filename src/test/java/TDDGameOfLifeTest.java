@@ -314,4 +314,25 @@ public class TDDGameOfLifeTest {
         assertEquals(expectedValue, result);
     }
 
+    @ParameterizedTest
+    @CsvSource({
+            "0,3, 0,2, .",
+            "2,7, 1,7, .",
+            "4,3, 4,4, .",
+            "2,0, 2,1, ."
+    })
+    void killOrSpawnCell_WhenReceiveConditionOne_KillCell(int y1, int x1, int y2, int x2, String expectedValue){
+        // Arrange
+        this.tddgameoflife.initializeStartingPoint(y1, x1);
+        this.tddgameoflife.initializeStartingPoint(y2, x2);
+        // Act
+        this.tddgameoflife.killOrSpawnCell();
+        // Assert
+        assertEquals(expectedValue, this.tddgameoflife.getBoard()[y1][x1]);
+        assertEquals(expectedValue, this.tddgameoflife.getBoard()[y2][x2]);
+    }
+
+    // Kallar på decideifcelllivesordies
+    // Gör något beroende på det svar den får
+
 }
