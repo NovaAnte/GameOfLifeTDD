@@ -393,6 +393,7 @@ public class TDDGameOfLifeTest {
         assertEquals(expectedValue, this.tddgameoflife.getLiveOrDieList().get(0));
     }
 
+    @Test
     void modifyCellDeadOrAlive_ReturnExpectedBoard(){
         // Arrange
         this.tddgameoflife.initializeStartingPoint(2,2);
@@ -403,9 +404,9 @@ public class TDDGameOfLifeTest {
         this.tddgameoflife.initializeStartingPoint(4,7);
         // Act
         this.tddgameoflife.modifyCellDeadOrAlive();
+        this.tddgameoflife.displayBoard();
         // Assert
         assertEquals(".", this.tddgameoflife.getBoard()[0][0]);
-        assertEquals(".", this.tddgameoflife.getBoard()[4][7]);
         assertEquals(".", this.tddgameoflife.getBoard()[4][7]);
         assertEquals("*", this.tddgameoflife.getBoard()[2][2]);
         assertEquals("*", this.tddgameoflife.getBoard()[2][3]);

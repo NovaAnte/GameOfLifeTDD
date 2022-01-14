@@ -133,14 +133,14 @@ public class TDDGameOfLife {
             list.add(pos4);
             list.add(pos5);
         } else {
-            ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x-1, y-1);
-            ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y-1);
-            ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x+1, y-1);
-            ImmutablePair<Integer, Integer> pos4 = new ImmutablePair<>(x-1, y);
-            ImmutablePair<Integer, Integer> pos5 = new ImmutablePair<>(x+1, y);
-            ImmutablePair<Integer, Integer> pos6 = new ImmutablePair<>(x-1, y+1);
-            ImmutablePair<Integer, Integer> pos7 = new ImmutablePair<>(x, y+1);
-            ImmutablePair<Integer, Integer> pos8 = new ImmutablePair<>(x+1, y+1);
+            ImmutablePair<Integer, Integer> pos1 = new ImmutablePair<>(x - 1, y - 1);
+            ImmutablePair<Integer, Integer> pos2 = new ImmutablePair<>(x, y - 1);
+            ImmutablePair<Integer, Integer> pos3 = new ImmutablePair<>(x + 1, y - 1);
+            ImmutablePair<Integer, Integer> pos4 = new ImmutablePair<>(x - 1, y);
+            ImmutablePair<Integer, Integer> pos5 = new ImmutablePair<>(x + 1, y);
+            ImmutablePair<Integer, Integer> pos6 = new ImmutablePair<>(x - 1, y + 1);
+            ImmutablePair<Integer, Integer> pos7 = new ImmutablePair<>(x, y + 1);
+            ImmutablePair<Integer, Integer> pos8 = new ImmutablePair<>(x + 1, y + 1);
             list.add(pos1);
             list.add(pos2);
             list.add(pos3);
@@ -150,7 +150,6 @@ public class TDDGameOfLife {
             list.add(pos7);
             list.add(pos8);
         }
-
 
 
         int counter = 0;
@@ -192,10 +191,10 @@ public class TDDGameOfLife {
         return 0;
     }
 
-    public void killOrSpawnCell(int y, int x){
+    public void killOrSpawnCell(int y, int x) {
         int condition = decideIfCellLivesOrDies(x, y);
 
-        switch (condition){
+        switch (condition) {
             case 1:
             case 2:
                 liveOrDieList.add(y + ";" + x + ";" + ".");
@@ -208,7 +207,23 @@ public class TDDGameOfLife {
 
     }
 
+    public void modifyCellDeadOrAlive() {
 
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                killOrSpawnCell(i, j);
+            }
+        }
+
+        for (String coordinate: liveOrDieList
+             ) {
+            String yCoordinate = String.valueOf(coordinate.split(";")[0]);
+            String xCoordinate = String.valueOf(coordinate.split(";")[1]);
+            String listSplit = String.valueOf(coordinate.split(";")[2]);
+            System.out.println(yCoordinate + xCoordinate + listSplit);
+            this.board[Integer.parseInt(yCoordinate)][Integer.parseInt(xCoordinate)] = listSplit;
+        }
+    }
 
 
     // spara alla koordinater i en lista
