@@ -198,10 +198,8 @@ public class TDDGameOfLife {
         }
 
         for (String coordinate : liveOrDieList) {
-            String yCoordinate = String.valueOf(coordinate.split(";")[0]);
-            String xCoordinate = String.valueOf(coordinate.split(";")[1]);
-            String listSplit = String.valueOf(coordinate.split(";")[2]);
-            this.board[Integer.parseInt(yCoordinate)][Integer.parseInt(xCoordinate)] = listSplit;
+            String[] coordinates = (coordinate.split(";"));
+            this.board[Integer.parseInt(coordinates[0])][Integer.parseInt(coordinates[1])] = coordinates[2];
         }
     }
 
