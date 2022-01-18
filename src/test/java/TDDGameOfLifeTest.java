@@ -1,10 +1,10 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TDDGameOfLifeTest {
 
@@ -27,10 +27,10 @@ public class TDDGameOfLifeTest {
         int y = 4;
         // Act
         this.tddgameoflife.initializeBoard(y, x);
-        String board[][] = this.tddgameoflife.getBoard();
+        String[][] board = this.tddgameoflife.getBoard();
         // Assert
-        Assertions.assertEquals(4, board.length);
-        Assertions.assertEquals(8, board[0].length);
+        assertEquals(4, board.length);
+        assertEquals(8, board[0].length);
     }
 
     @Test
@@ -41,7 +41,7 @@ public class TDDGameOfLifeTest {
         // Act
         this.tddgameoflife.displayBoard();
         // Assert
-        Assertions.assertEquals(true, this.tddgameoflife.isHasDisplayed());
+        assertTrue(this.tddgameoflife.isHasDisplayed());
     }
 
     @Test
@@ -53,7 +53,7 @@ public class TDDGameOfLifeTest {
         // Assert
         for (String[] x : this.tddgameoflife.getBoard()) {
             for (String y : x) {
-                Assertions.assertEquals(".", y);
+                assertEquals(".", y);
             }
         }
     }
@@ -67,7 +67,7 @@ public class TDDGameOfLifeTest {
         // Act
         this.tddgameoflife.spawnAliveCell(y, x);
         // Assert
-        Assertions.assertEquals("*", this.tddgameoflife.getBoard()[y][x]); // Skapa en funktion som hämtar ut * och som kan validera positionen
+        assertEquals("*", this.tddgameoflife.getBoard()[y][x]); // Skapa en funktion som hämtar ut * och som kan validera positionen
     }
 
     @Test
@@ -101,7 +101,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(3, 3);
         // Assert
-        Assertions.assertEquals(3, result);
+        assertEquals(3, result);
     }
 
     @Test
@@ -113,7 +113,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(3, 3);
         // Assert
-        Assertions.assertEquals(4, result);
+        assertEquals(4, result);
     }
 
 
@@ -128,7 +128,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(x1, y1);
         // Assert
-        Assertions.assertEquals(expectedValue, result);
+        assertEquals(expectedValue, result);
     }
 
     @ParameterizedTest
@@ -141,7 +141,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(x1, y1);
         // Assert
-        Assertions.assertEquals(3, result);
+        assertEquals(expectedValue, result);
     }
 
     @ParameterizedTest
@@ -153,7 +153,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(x1, y1);
         // Assert
-        Assertions.assertEquals(expectedValue, result);
+        assertEquals(expectedValue, result);
     }
 
     @ParameterizedTest
@@ -166,7 +166,7 @@ public class TDDGameOfLifeTest {
         // Act
         int result = this.tddgameoflife.decideIfCellLivesOrDies(x4, y4);
         // Assert
-        Assertions.assertEquals(expectedValue, result);
+        assertEquals(expectedValue, result);
     }
 
     @ParameterizedTest
